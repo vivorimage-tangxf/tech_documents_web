@@ -1,0 +1,25 @@
+{% extends 'manager/conference_base.html' %}
+
+{% block content %}
+<div class="text">
+ 
+    <h2 class="text-primary">会务组</h2>
+
+  <div>
+	{% for manager in managers %}
+	    <div> {{ manager.fullname }} ({{ manager.username }}) 
+	    <a class="btn" href="{% url 'manager:conference:manager_remove' conference.ID manager.username%}"><span class="glyphicon glyphicon-remove"></span></a>  
+	    </div>        
+	{% empty %}
+	    没有成员!
+	{% endfor %}
+  </div>
+ 
+	<div class="date">
+	  {% if user.is_authenticated%}
+	  <a class="btn btn-default" href="{% url 'manager:conference:manager_add' conference.ID %}"><span class="glyphicon glyphicon-plus"></span></a>
+	  {%endif%}
+	</div>
+  
+</div>
+{% endblock content %}

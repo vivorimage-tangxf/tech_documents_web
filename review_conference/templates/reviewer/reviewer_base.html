@@ -1,0 +1,12 @@
+{% extends 'reviewer/base.html' %}
+
+{% block breadcrumb %}
+    <li class="active">主页</li>
+{% endblock %}
+
+{% block sidebar %}
+    <li><a href="{% url 'reviewer:conference_list' %}">审查/评审会议</a></li>
+    <li><a href="{% url 'reviewer:reviewer_detail' %}">用户信息</a></li>
+    <li><a href="{% url 'reviewer:reviewer_cpw' %}">修改密码</a></li>
+{% endblock %}
+

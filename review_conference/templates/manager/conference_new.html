@@ -1,0 +1,15 @@
+{% extends 'manager/manager_base.html' %}
+
+{% block content %}
+<div class="text">
+<h2 class="text-primary">新建审查/评审会议</h2>
+
+<form method="POST" class="post-form">
+  {% csrf_token %}
+  <table boder='0'>
+    {{ form.as_table }}
+  </table>  
+  <button type="submit" class="save btn btn-default">确定</button>
+</form>
+</div>
+{% endblock %}

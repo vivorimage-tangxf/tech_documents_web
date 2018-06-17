@@ -1,0 +1,20 @@
+{% extends 'designer/designer_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">用户信息</h2>
+
+<h2>{{ designer.name }}</h2>
+<p>名称 {{ designer.fullname }}</p>
+<p>简称 {{ designer.shortname }}</p>
+<p>单位地址 {{ designer.address }}</p>
+<p>联系人 {{ designer.contactor }}</p>
+<p>联系电话 {{ designer.phone }}</p>
+<p>简介 {{ designer.profile|linebreaks }}</p>
+
+
+<div class="date">
+  {% if user.is_authenticated%}
+  <a class="btn btn-default" href="{% url 'designer:designer_edit' %}"><span class="glyphicon glyphicon-edit"></span></a>
+  {%endif%}
+</div>
+{% endblock %}

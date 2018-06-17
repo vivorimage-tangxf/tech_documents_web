@@ -1,0 +1,22 @@
+{% extends 'reviewer/reviewer_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">用户信息</h2>
+
+<h3>{{ reviewer.username }}</h3>
+
+<p>真实姓名 {{ reviewer.fullname }}</p>
+<p>性别 {{ reviewer.gender }}</p>
+<p>工作单位 {{ reviewer.organization }}</p>
+<p>部门 {{ reviewer.department }}</p>
+<p>职务/职称 {{ reviewer.title }}</p>
+<p>电话 {{ reviewer.phone }}</p>
+<p>备注 {{ reviewer.memo|linebreaks }}</p>
+
+<div class="date">
+  {% if user.is_authenticated%}
+  <a class="btn btn-default" href="{% url 'reviewer:reviewer_edit' %}"><span class="glyphicon glyphicon-edit"></span></a>
+  {%endif%}
+</div>
+{% endblock %}
+

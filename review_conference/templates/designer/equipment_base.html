@@ -1,0 +1,12 @@
+{% extends 'designer/base.html' %}
+
+{% block breadcrumb %}
+  <li><a href="{% url 'designer:equipment_list' %}">主页</a></li>
+  <li class="active">{{equipment.name}}</a></li>
+{% endblock %}
+
+{% block sidebar %}
+  <li><a href="{% url 'designer:equipment:equipment_detail' equipment.ID %}">设备信息</a></li>
+  <li><a href="{% url 'designer:equipment:document_list' equipment.ID %}">技术文件</a></li>
+  <li><a href="{% url 'designer:equipment:summary_list' equipment.ID %}">评审意见</a></li>
+{% endblock %}

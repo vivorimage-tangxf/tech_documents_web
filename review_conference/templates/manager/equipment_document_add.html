@@ -1,0 +1,21 @@
+{% extends 'manager/equipment_base.html' %}
+
+{% block content %}
+<div class="text">
+ 
+  <h2 class="text-primary">选择技术文件</h2>
+  
+  <div> 
+  <form method="POST" class="post-form">   {% csrf_token %}
+      {% if documents %}
+        {{ form.as_table }}
+      {% else %}
+        <p>没有可选的技术文件！</p>
+      {% endif %}      
+	  <div>
+   	  <input type="submit" class="save btn btn-default" value="确定"/>
+   	  </div>  
+   </form>
+  </div>              
+</div>
+{% endblock content %}

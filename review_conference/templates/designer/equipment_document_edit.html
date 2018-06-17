@@ -1,0 +1,21 @@
+{% extends 'designer/equipment_base.html' %}
+
+{% block content %}
+<div>
+ 
+  <div class="text-primary">
+    <h2>编辑技术文件</h2>
+  </div>
+  
+  <div> 
+  <form method="POST" enctype="multipart/form-data" class="post-form">   {% csrf_token %}
+	  <table boder='0'>
+	    {{ form.as_table }}
+	  </table>  
+	  <div>
+   	  <input type="submit" class="save btn btn-default" value="确定"/>
+   	  </div>  
+   </form>
+  </div>              
+</div>
+{% endblock content %}

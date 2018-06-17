@@ -1,0 +1,12 @@
+{% extends 'designer/base.html' %}
+
+{% block breadcrumb %}
+    <li class="active">主页</li>
+{% endblock %}
+
+{% block sidebar %}
+    <li><a href="{% url 'designer:equipment_list' %}">技术设备</a></li>
+    <li><a href="{% url 'designer:designer_detail' %}">用户信息</a></li>
+    <li><a href="{% url 'designer:designer_cpw' %}">修改密码</a></li>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'reviewer/base.html' %}
+
+{% block breadcrumb %}
+  <li><a href="{% url 'reviewer:conference_list' %}">主页</a></li>
+  <li><a href="{% url 'reviewer:conference:equipment_list' conference.ID %}">{{conference.name}}</a></li>
+  <li class="active">{{equipment.name}}</a></li>
+{% endblock %}
+
+{% block sidebar %}
+  <li><a href="{% url 'reviewer:conference:equipment:equipment_detail' conference.ID equipment.ID %}">设备信息</a></li>
+  <li><a href="{% url 'reviewer:conference:equipment:document_list' conference.ID equipment.ID %}">技术文件</a></li>
+  <li><a href="{% url 'reviewer:conference:equipment:comment_detail' conference.ID equipment.ID %}">专家意见</a></li>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'manager/equipment_base.html' %}
+
+{% block content %}
+<div class="text">
+  <h2 class="text-primary">技术文件</h2>
+
+  <div>
+  <div>
+	{% for doc in documents %}
+	    <div> {{ doc.title }}  
+	    <a class="btn" href="{% url 'manager:conference:equipment:document_remove' conference.ID equipment.ID doc.ID %}"><span class="glyphicon glyphicon-remove"></span></a>  
+	    </div>        
+	{% empty %}
+	    没有技术文件!
+	{% endfor %}
+  </div>
+ 
+	<div class="date">
+	  {% if user.is_authenticated%}
+	  <a class="btn btn-default" href="{% url 'manager:conference:equipment:document_add' conference.ID equipment.ID %}"><span class="glyphicon glyphicon-plus"></span></a>
+	  {%endif%}
+	</div>
+  
+  </div>              
+</div>
+{% endblock content %}

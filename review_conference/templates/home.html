@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>军工产品研制技术审查与评审会议系统</title>
+  {% load static %}  
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>     
+  <link rel="stylesheet" type="text/css" href="{% static 'review_conference/conference.css' %}">
+</head>
+<body>
+<div class="container-full">
+
+      <div class="row">
+       
+        <div class="col-lg-12 text-center v-center">
+          
+          <h1 class="text-center">军工产品研制技术审查与评审会议系统</h1>
+          <p class="lead text-center">欢迎您！</p>
+                    
+          <form method="post" class="col-lg-12" action="" role="form">
+            {% csrf_token %}
+		      {% if form.errors %}
+		        <p class='lead text-warning'>用户名和密码不匹配，请重新输入!</p>
+		        {{ form.non_field_errors }}		      
+		      {% endif %}                                 
+            <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
+              <input type="text" class="center-block form-control input-lg" name="username" title="用户名" placeholder="请输入用户名" >
+                  {{ form.username.errors }}              
+              <input type="password" class="center-block form-control input-lg" name="password" title="密码" placeholder="请输入密码" >
+                {{ form.password.errors }}            
+              <button type="submit" class="btn btn-lg btn-primary btn-block" value="login">登录</button>
+            </div>
+          </form>
+          <br>
+        </div>
+        
+      </div> <!-- /row -->
+    
+  	<br><br><br><br><br>
+
+</div> <!-- /container full -->
+
+<div class="container-fluid">  
+  <hr>
+    <p class="lead">通过制定统一的技术文件格式标准，保证技术文件格式的规范性；通过提供友好的编写规范和范例，
+            帮助厂所设计人员编写技术文件，保证技术文件内容的有效性；通过提供数学模型计算功能，
+            帮助厂所设计人员完成国军标中规定数据模型的计算验证，提高技术文件数据的准确性；
+            通过搭建网络化评审系统，实现无纸化评审。研究成果可以作为厂所设计人员在产品研制过程中
+            编写技术文件的辅助设计工具，还可以作为评审专家开展技术审查评审时的工具。具体功能包括：
+   </p>            
+  	<div class="row">
+        <div class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>技术文件的辅助设计</h3></div>
+            <div class="panel-body">
+              <ol>
+                <li>技术文件格式和内容的标准化</li>
+                <li>技术文件的辅助编写</li>
+                <li>已有技术文件的标准化转换</li>
+                <li>数学模型的计算与验证</li>            
+            </ol>
+            </div>
+          </div>
+        </div>
+      	<div class="col-md-4">
+        	<div class="panel panel-default">
+            <div class="panel-heading"><h3>技术文件的审查和评审</h3></div>
+            <div class="panel-body">
+              <ol>
+                <li>技术文件的格式和内容审查</li>
+                <li>评审系统构建</li>
+                <li>专家审阅、批注，评审意见提交和汇总</li>
+            </ol>
+            </div>
+          </div>
+        </div>
+      	<div class="col-md-4">
+        	<div class="panel panel-default">
+            <div class="panel-heading"><h3>技术文件的存储、查阅与统计</h3></div>
+            <div class="panel-body">
+              <ol>
+                <li>技术文件历史版本的保存</li>
+                <li>技术文件历史版本的查阅</li>
+                <li>技术文件的内容搜索</li>
+                <li>技术文件的统计</li>
+            </ol>
+            </div>
+          </div>
+        </div>
+    </div>
+              
+	<div class="row">
+        <div class="col-lg-12">
+        <br><br>
+          <p class="pull-right"> ©Copyright 2017 微数<sup>TM</sup>软件</p>
+        <br><br>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'manager/conference_base.html' %}
+
+{% block content %}
+<div class="conference">
+ 
+  <h2 class="text-primary">技术设备</h2>
+  
+  <div class="text">
+	{% for equipment in equipments %}
+	    <div> 
+       {% if user.is_authenticated %}
+	      <a href= "{%url 'manager:conference:equipment:equipment_detail' conference.ID equipment.ID %}">{{ equipment.name }} ({{ equipment.organization.shortname }})</a>
+	    {% else %}
+         {{ equipment.name }} ({{ equipment.organization.shortname }}) 
+	    {% endif %}	    	    
+	    <a class="btn" href="{% url 'manager:conference:equipment:equipment_remove' conference.ID equipment.ID %}"><span class="glyphicon glyphicon-remove"></span></a>  
+	    </div>        
+	{% empty %}
+	    没有技术设备!
+	{% endfor %}
+  </div>
+ 
+	<div class="date">
+	  {% if user.is_authenticated%}
+	  <a class="btn btn-default" href="{% url 'manager:conference:equipment_add' conference.ID %}"><span class="glyphicon glyphicon-plus"></span></a>
+	  {%endif%}
+	</div>
+  
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'reviewer/equipment_base.html' %}
+
+{% block content %}
+<div class="conference">
+ 
+  <div class="text">
+    <h2 class="text-primary">专家意见</h2>
+  </div>
+  <div>
+  <form method="GET">   {% csrf_token %}
+      {% if comment %}
+       <p> 提交时间  {{comment.sub_time}}</p>
+       <p> 最后更新  {{comment.last_update_time}}</p>
+       <p> 内容  {{comment.content}}</p>                
+      {% else %}
+        <p>未提交专家意见</p>
+      {% endif %}
+	  <div>
+	  {% if user.is_authenticated%}
+		  {% if comment %}
+		    <a class="btn btn-default" href="{% url 'reviewer:conference:equipment:comment_edit' conference.ID equipment.ID comment.ID %}"><span class="glyphicon glyphicon-edit"></span></a>
+		  {% else %}
+		    <a class="btn btn-default" href="{% url 'reviewer:conference:equipment:comment_new' conference.ID equipment.ID %}"><span class="glyphicon glyphicon-plus"></span></a>	  
+		  {% endif %}
+	  {% endif %}
+   	  </div>  
+   </form>
+  </div>              
+</div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'designer/designer_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">删除技术设备</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  <p>确定删除 "{{ object }}"吗?</p>
+  <button type="submit" class="ok btn btn-default">确定</button>
+</form>
+{% endblock %}

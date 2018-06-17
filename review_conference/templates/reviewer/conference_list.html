@@ -1,0 +1,35 @@
+{% extends 'reviewer/reviewer_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">审查/评审会议</h2>
+  
+{% for conference in conferences %}
+<div class="conference">
+  
+  <div class="text">
+    <h2>
+    {% if conference.can_access %}
+    <a href= "{%url 'reviewer:conference:conference_detail' conference.ID %}">{{ conference.name }}</a>
+    {% else %}
+    {{ conference.name }}
+    {% endif %}        
+    </h2>  
+  </div>
+  
+  <div class="date">
+    会议时间 {{ conference.begin_date }} ～ {{ conference.end_date }}
+  </div>
+  <div class="text">
+    创建人 {{ conference.creator }} ({{ conference.create_time }})
+  </div>
+  <div class="text">
+    最后更新人 {{ conference.last_updater }} ({{ conference.last_update_time }})
+  </div>
+  
+  <p>{{ conference.memo|linebreaks|slice:":500" }}........</p>
+    
+</div>
+{% endfor %}
+
+
+{% endblock content %}

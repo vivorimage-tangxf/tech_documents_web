@@ -1,0 +1,23 @@
+{% extends 'manager/conference_base.html' %}
+
+{% block content %}
+<div class="date">
+</div>
+<h2 class="text-primary">会议信息</h2>
+
+<p>开始时间 {{ conference.begin_date }}</p>
+<p>结束时间 {{ conference.end_date }}</p>
+<p>会议地址 {{ conference.adress }}</p>
+<p>创建人 {{ conference.creator }}</p>
+<p>创建时间 {{ conference.create_time }}</p>
+<p>更新人 {{ conference.last_updater }}</p>
+<p>更新时间 {{ conference.last_update_time }}</p>
+<p>备注 {{ conference.memo|linebreaks }}</p>
+
+<div class="date">
+  {% if user.is_authenticated%}
+  <a class="btn btn-default" href="{% url 'manager:conference:conference_edit' conference.ID %}"><span class="glyphicon glyphicon-edit"></span></a>
+  {%endif%}
+</div>
+
+{% endblock %}

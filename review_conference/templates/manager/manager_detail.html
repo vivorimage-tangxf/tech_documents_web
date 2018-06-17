@@ -1,0 +1,22 @@
+{% extends 'manager/manager_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">用户信息</h2>
+
+<h3>{{ manager.username }}</h2>
+
+<p>真实姓名 {{ manager.fullname }}</p>
+<p>性别 {{ manager.gender }}</p>
+<p>工作单位 {{ manager.organization }}</p>
+<p>部门 {{ manager.department }}</p>
+<p>职务/职称 {{ manager.title }}</p>
+<p>电话 {{ manager.phone }}</p>
+<p>备注 {{ manager.memo|linebreaks }}</p>
+
+<div class="date">
+  {% if user.is_authenticated%}
+  <a class="btn btn-default" href="{% url 'manager:manager_edit' %}"><span class="glyphicon glyphicon-edit"></span></a>
+  {%endif%}
+</div>
+{% endblock %}
+

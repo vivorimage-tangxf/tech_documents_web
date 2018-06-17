@@ -1,0 +1,17 @@
+{% extends 'designer/equipment_base.html' %}
+
+{% block content %}
+<div class="date">
+</div>
+<h2>设备信息</h2>
+<p>创建时间 {{ equipment.create_time }}</p>
+<p>更新时间 {{ equipment.last_update_time }}</p>
+<p>备注 {{ equipment.memo|linebreaks }}</p>
+
+<div class="date">
+  {% if user.is_authenticated%}
+  <a class="btn btn-default" href="{% url 'designer:equipment:equipment_edit' equipment.ID %}"><span class="glyphicon glyphicon-edit"></span></a>
+  {%endif%}
+</div>
+
+{% endblock %}

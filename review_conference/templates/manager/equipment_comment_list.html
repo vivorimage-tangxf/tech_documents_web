@@ -1,0 +1,20 @@
+{% extends 'manager/equipment_base.html' %}
+
+{% block content %}
+<div class="text">
+ 
+  <h2 class="text-primary">专家意见</h2>
+
+  <div>
+	{% for comment in comments %}
+	    <div> 
+		    <p> 审查专家: {{ comment.reviewer.fullname }} </p>
+		    <p> 提交时间: {{ comment.last_update_time }} </p>
+		    <p> 内容: {{ comment.content }} </p>	     
+	    </div>        
+	{% empty %}
+	    没有审查意见!
+	{% endfor %}
+  </div>
+</div>
+{% endblock content %}

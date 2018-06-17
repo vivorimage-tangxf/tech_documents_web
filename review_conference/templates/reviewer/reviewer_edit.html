@@ -1,0 +1,13 @@
+{% extends 'reviewer/reviewer_base.html' %}
+
+{% block content %}
+<h2 class="text-primary">修改用户信息</h2>
+
+<form method="POST" class="post-form">
+  {% csrf_token %}
+  <table boder='0'>
+  {{form.as_table}}
+  </table>
+  <button type="submit" class="save btn btn-default">保存</button>
+</form>
+{% endblock %}

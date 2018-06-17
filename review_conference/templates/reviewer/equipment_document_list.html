@@ -1,0 +1,26 @@
+{% extends 'reviewer/equipment_base.html' %}
+
+{% block content %}
+<div class="conference">
+ 
+  <div class="text">
+    <h2 class="text-primary">技术文件</h2>
+  </div>
+  <div>
+  <div>
+    <ol class="">
+	{% for doc in documents %}
+	    <li class=""> 
+	      <p>{{ doc.title }} ({{ doc.last_update_time }})</p>
+         <a class="btn" href="{% url 'reviewer:document:document_online' doc.ID %}" target="_blank"><span class="glyphicon glyphicon-file"></span></a>
+         <a class="btn" href="{% url 'reviewer:document:document_download' doc.ID %}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a>	    
+	    </li>
+	{% empty %}
+	    没有技术文件!
+	{% endfor %}
+	</ul>        
+  </div>
+   
+  </div>              
+</div>
+{% endblock content %}

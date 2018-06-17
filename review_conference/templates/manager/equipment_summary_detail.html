@@ -1,0 +1,29 @@
+{% extends 'manager/equipment_base.html' %}
+
+{% block content %}
+<div class="text">  
+  <h2 class="text-primary">评审意见</h2>
+  
+  <div>
+  <form method="GET">   {% csrf_token %}
+      {% if summary %}
+       <p> 会议管理员 {{summary.reviewer}} </p>
+       <p> 提交时间  {{summary.sub_time}}</p>
+       <p> 最后更新  {{summary.last_update_time}}</p>
+       <p> 内容  {{summary.content}}</p>                
+      {% else %}
+        <p>未提交评审意见</p>
+      {% endif %}
+	  <div>
+	  {% if user.is_authenticated%}
+		  {% if summary %}
+		    <a class="btn btn-default" href="{% url 'manager:conference:equipment:summary_edit' conference.ID equipment.ID summary.ID %}"><span class="glyphicon glyphicon-edit"></span></a>
+		  {% else %}
+		    <a class="btn btn-default" href="{% url 'manager:conference:equipment:summary_new' conference.ID equipment.ID %}"><span class="glyphicon glyphicon-plus"></span></a>	  
+		  {% endif %}
+	  {% endif %}
+   	  </div>  
+   </form>
+  </div>              
+</div>
+{% endblock content %}

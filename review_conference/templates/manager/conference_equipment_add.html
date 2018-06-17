@@ -1,0 +1,23 @@
+{% extends 'manager/conference_base.html' %}
+
+{% block content %}
+<div class="conference">
+ 
+  <div class="text-primary">
+    <h2 class="text-primary">选择技术设备</h2>
+  </div>
+  
+  <div> 
+  <form method="POST" class="post-form">   {% csrf_token %}
+      {% if equipments %}
+        {{ form.as_table }}
+      {% else %}
+        <p>没有可选的技术设备！</p>
+      {% endif %}      
+	  <div>
+   	  <input type="submit" class="save btn btn-default" value="确定"/>
+   	  </div>  
+   </form>
+  </div>              
+</div>
+{% endblock content %}

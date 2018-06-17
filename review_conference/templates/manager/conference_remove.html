@@ -1,0 +1,13 @@
+{% extends 'manager/manager_base.html' %}
+
+{% block content %}
+<div class="text">
+<h2 class="text-primary">删除审查/评审会议</h2>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <p>确定删除 "{{ object }}"吗?</p>
+  <button type="submit" class="ok btn btn-default">确定</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'reviewer/equipment_base.html' %}
+
+{% block content %}
+<div class="conference">
+ 
+  <div class="text">
+    <h2 class="text-primary">编辑专家意见</h2>
+  </div>
+  <div>
+  <form method="POST" class="post-form">   {% csrf_token %}
+  <table boder='0'>
+    {{ form.as_table }}
+  </table>
+	 {% if user.is_authenticated %}
+      <button type="submit" class="save btn btn-default">保存</button>
+	 {%endif%}
+   </form>
+  </div>  
+              
+</div>
+{% endblock content %}
